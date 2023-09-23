@@ -34,8 +34,9 @@ public class EmployerController {
         }
 
         Employer employer = new Employer(newEmployer.getLocation());
-        employerRepository.save(employer);
+        employerRepository.save(newEmployer);
 
+        model.addAttribute("employer", employer);
         return "redirect:";
     }
 

@@ -36,7 +36,10 @@ public class SkillController {
         }
 
         Skill skill = new Skill(newSkill.getDescription());
-        skillRepository.save(skill);
+        skillRepository.save(newSkill);
+
+        model.addAttribute("skill", newSkill);
+
 
         return "redirect:";
     }
@@ -51,14 +54,14 @@ public class SkillController {
             model.addAttribute("skill", skill);
             return "skills/view";
         } else {
-            return "redirect:../";
+            return "redirect:";
         }
     }
 
     @GetMapping("")
     public String index(Model model) {
-        model.addAttribute("employers", skillRepository.findAll());
-        return "skill/index";
+        model.addAttribute("skill", skillRepository.findAll());
+        return "skills/index";
 
 
     }
