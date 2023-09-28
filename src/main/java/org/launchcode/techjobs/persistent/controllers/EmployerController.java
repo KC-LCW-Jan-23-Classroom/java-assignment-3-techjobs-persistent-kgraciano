@@ -33,7 +33,9 @@ public class EmployerController {
             return "employers/add";
         }
 
+        // instantiating user input  to an Employer object to be converted into the database
         Employer employer = new Employer(newEmployer.getLocation());
+        // .save inserts newEmployer into the database adds a row
         employerRepository.save(newEmployer);
 
         model.addAttribute("employer", employer);
