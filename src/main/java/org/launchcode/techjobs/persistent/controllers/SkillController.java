@@ -38,7 +38,7 @@ public class SkillController {
         Skill skill = new Skill(newSkill.getDescription());
         skillRepository.save(newSkill);
 
-        model.addAttribute("skills", skill);
+        model.addAttribute("skill", skill);
 
 
         return "redirect:";

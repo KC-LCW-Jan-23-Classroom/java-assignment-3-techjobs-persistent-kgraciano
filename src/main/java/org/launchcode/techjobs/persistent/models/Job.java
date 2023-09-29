@@ -10,7 +10,10 @@ public class Job extends AbstractEntity{
     @JoinColumn(name = "employer_id")
     private Employer employer;
 
-    @ManyToMany
+    @ManyToMany()
+    @JoinTable(name = "job_skills",
+            joinColumns = @JoinColumn(name = "jobs_id"),
+            inverseJoinColumns = @JoinColumn(name = "skills_id"))
     private List<Skill> skills;
 
     public Job() {
